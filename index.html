@@ -19,6 +19,17 @@
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script src="javascripts/jquery.redirect.js"></script>
     <script src="javascripts/jquery.checkboxify.js"></script>
+    <style>
+      td div.blue {
+        background: #9ddcff;
+        height: 45px; 
+        width: 45px; 
+        margin: 5px;
+      }
+      td div.red {
+        background: #FD3A67;
+      }
+    </style>
   </head>
 
   <body>
@@ -46,10 +57,10 @@
 <p>You have an interactive website with lots of tables listing details of items in the database (Orders, Payments and so on). </p>
 <table>
   <tr><th>id</th><th>name</th><th>colour</th><th>status</th><th></th></tr>
-  <tr><td>40196</td><td>James</td><td>blue</td><td>active</td><td><button>edit</button><button>delete</button></td></tr>
-  <tr><td>40195</td><td>Donald</td><td>red</td><td>bonkers</td><td><button>edit</button><button>delete</button></td></tr>
-  <tr><td>40194</td><td>Milly</td><td>red</td><td>active</td><td><button>edit</button><button>delete</button></td></tr>
-  <tr><td>40193</td><td>Sophie</td><td>blue</td><td>paused</td><td><button>edit</button><button>delete</button></td></tr>
+  <tr><td>40196</td><td>James</td><td><div class="blue"></div></td><td>active</td><td><button>edit</button><button>delete</button></td></tr>
+  <tr><td>40195</td><td>Donald</td><td><div class="red"></div></td><td>bonkers</td><td><button>edit</button><button>delete</button></td></tr>
+  <tr><td>40194</td><td>Milly</td><td><div class="red"></div></td><td>active</td><td><button>edit</button><button>delete</button></td></tr>
+  <tr><td>40193</td><td>Sophie</td><td><div class="blue"></div></td><td>paused</td><td><button>edit</button><button>delete</button></td></tr>
 </table>
 
 
@@ -57,10 +68,10 @@
 
 <table id="theTable">
   <tr><th>id</th><th>name</th><th>colour</th><th>status</th><th></th></tr>
-  <tr><td>40196</td><td>James</td><td>blue</td><td>active</td><td><button>edit</button><button>delete</button></td></tr>
-  <tr><td>40195</td><td>Donald</td><td>red</td><td>bonkers</td><td><button>edit</button><button>delete</button></td></tr>
-  <tr><td>40194</td><td>Milly</td><td>red</td><td>active</td><td><button>edit</button><button>delete</button></td></tr>
-  <tr><td>40193</td><td>Sophie</td><td>blue</td><td>paused</td><td><button>edit</button><button>delete</button></td></tr>
+  <tr><td>40196</td><td>James</td><td><div class="blue"></div></td><td>active</td><td><button>edit</button><button>delete</button></td></tr>
+  <tr><td>40195</td><td>Donald</td><td><div class="red"></div></td><td>bonkers</td><td><button>edit</button><button>delete</button></td></tr>
+  <tr><td>40194</td><td>Milly</td><td><div class="red"></div></td><td>active</td><td><button>edit</button><button>delete</button></td></tr>
+  <tr><td>40193</td><td>Sophie</td><td><div class="blue"></div></td><td>paused</td><td><button>edit</button><button>delete</button></td></tr>
 </table>
 
 
