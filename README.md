@@ -3,6 +3,8 @@ A jQuery UI compatible plugin that adds a checkbox to each row of a table (and c
 
 The first `<td>` of each row in the `<table>` should contain the `id` for the item in the row.
 
+[Demo and Documentation](http://annabels.github.io/jquery.checkboxifyTable)
+
 ##Motivation
 You have an interactive website with lots of tables listing details of items in the database (Orders, Payments and so on). 
 
