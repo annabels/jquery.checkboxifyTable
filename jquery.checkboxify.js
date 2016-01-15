@@ -1,6 +1,10 @@
 (function ($)  {
 	$.widget( 'stog.checkboxify', {
 
+		options: {
+			selectAll:	true,	
+		},
+
 		_create: function() {
 			var that = this;
 			// add in checkboxes
@@ -13,10 +17,34 @@
 			});
 			
 			// add buttons
-			if(this.options.buttons) {
-				var nButtons = this.options.buttons.length;
+			if(this.options.buttons || this.options.selectAll) {
 				buttDiv = $('<div></div>');
 				this.element.before(buttDiv);
+
+				if(this.options.selectAll) {
+					// add select all button
+					newButton = $('<button><span><input type="checkbox" class="checkboxify-all"></span></button>');
+					newButton.click(function() {
+							$(that.element).find('.checkboxify').prop('checked',$('input',this).prop('checked'));
+					});
+					if(this.options.selectAll.class)
+						newButton.addClass(this.options.selectAll.class);
+					buttDiv.append(newButton);
+
+					// select all checkbox to react to changes to row checkboxes
+					$('.checkboxify', that.element).change(function() {
+						nAll = $('.checkboxify', that.element).length;
+						nOn = $('.checkboxify:checked', that.element).length;
+						if(!nOn)
+							$('.checkboxify-all').prop('checked', false).prop('indeterminate',false);
+						else if(nAll == nOn)
+							$('.checkboxify-all').prop('checked', true).prop('indeterminate',false);
+						else
+							$('.checkboxify-all').prop('checked', true).prop('indeterminate', true);
+					});
+				}
+
+				var nButtons = this.options.buttons.length;
 				for(var i=0; i<nButtons; i++) {
 					but = this.options.buttons[i];
 					newButton = $('<button>' + but.label + '</button>')
