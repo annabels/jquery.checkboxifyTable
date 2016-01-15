@@ -49,8 +49,14 @@
 					but = this.options.buttons[i];
 					newButton = $('<button>' + but.label + '</button>')
 					newButton.data('checkboxify-action', but.action)
-					.data('checkboxify-params', but.params)
-					.click(function() {
+					.data('checkboxify-params', but.params);
+					if(but.confirm) {
+						newButton.click(function(event) {
+							if(!confirm(but.confirm))
+								ev.stopPropogation();
+						});
+					}
+					newButton.click(function() {
 						$this = $(this);
 						var all_params = $.extend($this.data('checkboxify-params'), {id: that.getSelected() });
 						$.redirect($this.data('checkboxify-action'), all_params);
