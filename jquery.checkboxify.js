@@ -2,7 +2,7 @@
 	$.widget( 'stog.checkboxify', {
 
 		options: {
-			selectAll:	true,	
+			selectAll:	true,
 		},
 
 		_create: function() {
@@ -12,10 +12,10 @@
 				var $this= $(this);
 				var id = $this.parent().data('checkboxify-id');
 				if(!id)
-					id = $this.html();
+					id = $this.html().trim();
 				$this.append('<br><input type="checkbox" class="checkboxify" data-id="' + id + '">');
 			});
-			
+
 			// add buttons
 			if(this.options.buttons || this.options.selectAll) {
 				buttDiv = $('<div></div>');
@@ -70,7 +70,7 @@
 
 		getSelected: function() {
 			var a = this.element.find('input.checkboxify:checked').map( function () {
-				return $(this).data('id');				
+				return $(this).data('id');
 			}).get();
 			return a;
 		}
@@ -78,4 +78,3 @@
 	});
 
 }( jQuery ));
-
