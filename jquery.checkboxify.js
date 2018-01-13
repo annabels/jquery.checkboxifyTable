@@ -2,18 +2,29 @@
 	$.widget( 'stog.checkboxify', {
 
 		options: {
-			selectAll:	true,
+			selectAll:			true,
+			itemSelector:		'tr td:first-child',
+			prependCheckbox:	false,
 		},
 
 		_create: function() {
 			var that = this;
 			// add in checkboxes
-			this.element.find('tr td:first-child').each( function () {
+			this.element.find(this.options.itemSelector).each( function () {
 				var $this= $(this);
 				var id = $this.parent().data('checkboxify-id');
 				if(!id)
+					id = $this.data('checkboxify-id');
+				if(!id)
 					id = $this.text().trim();
-				$this.append('<br><input type="checkbox" class="checkboxify" data-id="' + id + '">');
+				var boxHtml = '<input type="checkbox" class="checkboxify" data-id="' + id + '">';
+				if(that.options.prependCheckbox)
+					$this.prepend(boxHtml);
+				else {
+					if($this.text().length > 0);
+						boxHtml = '<br>' + boxHtml;
+					$this.append(boxHtml);
+				}
 			});
 
 			// add buttons
@@ -78,3 +89,4 @@
 	});
 
 }( jQuery ));
+
